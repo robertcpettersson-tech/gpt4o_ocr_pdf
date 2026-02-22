@@ -1,7 +1,7 @@
 version: 0.0.2
 type: plugin
 name: gpt4o_ocr_pdf
-author: ditt_github_namn   # <--- BYT UT MOT DITT EXAKTA GITHUB-NAMN
+author: robertcpettersson-tech
 label:
   en_US: GPT-4o PDF OCR to Markdown (Any VLM - Ollama)
   zh_Hans: PDF OCR转Markdown (Ollama/Qwen)
