@@ -2,13 +2,13 @@ identity:
   name: gpt4o_ocr_pdf
   author: kenwood
   label:
-    en_US: GPT-4o PDF OCR to Markdown
-    zh_Hans: PDF文件OCR识别转Markdown格式
+    en_US: GPT-4o PDF OCR to Markdown (Any VLM)
+    zh_Hans: PDF OCR转Markdown (支持任意VLM)
 description:
   human:
-    en_US: Extract text from PDF files using GPT-4o's OCR capabilities and convert to Markdown format
-    zh_Hans: 使用 GPT-4o 的 OCR 功能从 PDF 文件中提取文本并转换为 Markdown 格式
-  llm: This tool uses Azure OpenAI's GPT-4o model to perform OCR on PDF files, extracting text and formatting it as Markdown. It preserves document structure including headings, paragraphs, lists, and tables.
+    en_US: Extract text from PDF files using any OpenAI-compatible VLM (Ollama, Qwen-VL etc) and convert to clean Markdown
+    zh_Hans: 使用任意 OpenAI 兼容 VLM 从 PDF 文件提取文本并转为干净 Markdown
+  llm: This tool uses any OpenAI-compatible vision model (Ollama Qwen3-VL etc) for high-accuracy OCR on invoices/PDFs → perfect Markdown output.
 parameters:
   - name: upload_file
     type: file
@@ -21,6 +21,32 @@ parameters:
       zh_Hans: 上传 PDF 文件以提取文本并转换为 Markdown
     llm_description: The PDF file to process with OCR and convert to Markdown format
     form: llm
+
+credentials:
+  - name: api_key
+    type: secret-input
+    required: true
+    label:
+      en_US: API Key
+      zh_Hans: API Key
+    placeholder: "ollama"
+  - name: api_base
+    type: text-input
+    required: true
+    label:
+      en_US: API Base URL
+      zh_Hans: API Base URL
+    placeholder: "http://host.docker.internal:11434/v1"
+    default: "https://api.openai.com/v1"
+  - name: model
+    type: text-input
+    required: true
+    label:
+      en_US: Model Name
+      zh_Hans: Model Name
+    placeholder: "qwen3-vl:32b"
+    default: "gpt-4o"
+
 extra:
   python:
     source: tools/gpt4o_ocr_pdf.py
