@@ -1,18 +1,17 @@
 version: 0.0.2
 type: plugin
-author: kenwood
 name: gpt4o_ocr_pdf
+author: ditt_github_namn   # <--- BYT UT MOT DITT EXAKTA GITHUB-NAMN
 label:
-  en_US: GPT-4o PDF OCR to Markdown
-  ja_JP: PDFからテキスト抽出とMarkdown変換
-  zh_Hans: PDF文件OCR识别转Markdown格式
+  en_US: GPT-4o PDF OCR to Markdown (Any VLM - Ollama)
+  zh_Hans: PDF OCR转Markdown (Ollama/Qwen)
 description:
-  en_US: Extract text from PDF files using GPT-4o's OCR capabilities and convert to well-formatted Markdown. Preserves document structure including headings, paragraphs, lists, and tables.
-  ja_JP: GPT-4o の OCR 機能を使用して PDF ファイルからテキストを抽出し、整形された Markdown に変換します。見出し、段落、リスト、表などの文書構造を保持します。
-  zh_Hans: 使用 GPT-4o 的 OCR 功能从 PDF 文件中提取文本并转换为格式良好的 Markdown。保留文档结构，包括标题、段落、列表和表格。
-icon: icon.svg
+  en_US: Convert any PDF (especially invoices) to clean Markdown using any OpenAI-compatible VLM like Ollama Qwen3-VL. Perfect structure, tables, numbers.
+plugins:
+  tools:
+    - tools/gpt4o_ocr_pdf.yaml   # uppdaterad path så det matchar din fil
 resource:
-  memory: 268435456
+  memory: 536870912
   permission:
     tool:
       enabled: true
@@ -23,9 +22,6 @@ resource:
     storage:
       enabled: true
       size: 1048576
-plugins:
-  tools:
-    - provider/gpt4o_ocr_pdf.yaml
 meta:
   version: 0.0.2
   arch:
@@ -36,6 +32,6 @@ meta:
     version: "3.12"
     entrypoint: main
   minimum_dify_version: 0.14.1
-created_at: 2025-04-30T17:07:19.022449+08:00
+created_at: 2026-02-22
 privacy: PRIVACY.md
 verified: false
